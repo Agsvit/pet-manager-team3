@@ -11,12 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-@Entity
 public class Pet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private  String id;
 
     @Enumerated(EnumType.ORDINAL)
     private PetType petType;
