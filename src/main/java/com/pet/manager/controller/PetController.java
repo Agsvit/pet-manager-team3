@@ -1,6 +1,7 @@
 package com.pet.manager.controller;
 
 
+import com.pet.manager.controller.request.PetCreationRequest;
 import com.pet.manager.model.Pet;
 import com.pet.manager.service.PetService;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +37,13 @@ public class PetController {
     }
 
     @PostMapping(value = "/pets", consumes = "application/json", produces = "application/json")
-    public Pet createPet(@RequestBody Pet pet) {
-        Pet newPet = petService.save(pet);
+    public Pet createPet(@RequestBody PetCreationRequest petReq) {
+        Pet newPet = Pet
+                .builder()
+                .petType(petReq.getPetType())
+                .petName(petReq.getPetName())
+                .build();
+        petService.save(newPet);
         return newPet;
     }
 }

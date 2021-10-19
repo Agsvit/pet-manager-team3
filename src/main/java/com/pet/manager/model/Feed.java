@@ -19,9 +19,9 @@ public class Feed {
 
     private LocalDateTime lunchTime;
 
-    @OneToOne
+//    @OneToOne
     private Food food;
 
-    @OneToOne
+//    @OneToOne
     private Pet pet;
 }

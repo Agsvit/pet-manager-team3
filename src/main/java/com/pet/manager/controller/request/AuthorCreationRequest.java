@@ -1,4 +1,4 @@
-package com.pet.manager.controller;
+package com.pet.manager.controller.request;
 
 
 import lombok.AllArgsConstructor;

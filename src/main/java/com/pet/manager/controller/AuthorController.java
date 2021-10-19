@@ -1,6 +1,8 @@
 package com.pet.manager.controller;
 
 
+import com.pet.manager.controller.request.AuthorCreationRequest;
+import com.pet.manager.controller.request.AuthorResponse;
 import com.pet.manager.service.AuthorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
