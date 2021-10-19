@@ -16,7 +16,7 @@ public class Pet {
     @Id
     private  String id;
 
-    @Enumerated(EnumType.ORDINAL)
+//    @Enumerated(EnumType.ORDINAL)
     private PetType petType;
 
     private String petName;

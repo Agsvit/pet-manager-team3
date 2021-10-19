@@ -1,4 +1,4 @@
-package com.pet.manager.crontroller;
+package com.pet.manager.controller;
 
 
 import com.pet.manager.service.AuthorService;
