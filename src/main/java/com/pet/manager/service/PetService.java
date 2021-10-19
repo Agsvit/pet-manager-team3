@@ -16,4 +16,8 @@ public class PetService {
     public List<Pet> findAll() {
         return petRepository.findAll();
     }
+
+    public Pet save(Pet pet) {
+        return petRepository.save(pet);
+    }
 }

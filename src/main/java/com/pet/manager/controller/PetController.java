@@ -4,10 +4,7 @@ package com.pet.manager.controller;
 import com.pet.manager.model.Pet;
 import com.pet.manager.service.PetService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,4 +36,8 @@ public class PetController {
     }
 
     @PostMapping(value = "/pets", consumes = "application/json", produces = "application/json")
+    public Pet createPet(@RequestBody Pet pet) {
+        Pet newPet = petService.save(pet);
+        return newPet;
+    }
 }
