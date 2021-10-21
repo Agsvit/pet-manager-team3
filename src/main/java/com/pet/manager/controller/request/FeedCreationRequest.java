@@ -1,8 +1,7 @@
-package com.pet.manager.model;
+package com.pet.manager.controller.request;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
@@ -11,11 +10,7 @@ import java.time.LocalDateTime;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Feed {
-
-    @Id
-    private String id;
+public class FeedCreationRequest {
 
     private LocalDateTime lunchTime;
 

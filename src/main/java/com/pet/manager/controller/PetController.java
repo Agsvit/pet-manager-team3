@@ -1,11 +1,14 @@
 package com.pet.manager.controller;
 
 
+import com.pet.manager.controller.request.FeedCreationRequest;
 import com.pet.manager.controller.request.PetCreationRequest;
+import com.pet.manager.model.Feed;
 import com.pet.manager.model.Pet;
 import com.pet.manager.service.PetService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,8 +25,8 @@ public class PetController {
         return petService.findAll();
     }
 
-    @GetMapping("/pets/{id}")
-    public Pet getPetById(String id) {
+    @GetMapping("/pets")
+    public Pet getPetById(@RequestBody String id) {
         return petService.findById(id);
     }
 
@@ -33,7 +36,7 @@ public class PetController {
     }
 
     @GetMapping("/pets/{name}")
-    public Pet getPetByName(String name) {
+    public Pet getPetByName(@PathVariable(value = "name") String name) {
         return petService.findByName(name);
     }
 
@@ -53,8 +56,22 @@ public class PetController {
         return petService.update(petReq, id);
     }
 
+    @PutMapping(value = "/pets")
+    public Pet addFeed(@RequestBody String id, FeedCreationRequest feedReq) {
+        Feed feed = Feed
+                .builder()
+                .lunchTime(feedReq.getLunchTime())
+                .food(feedReq.getFood())
+                .build();
+        return petService.addFeed(id, feed);
+    }
+
     @DeleteMapping(value = "/pets/{id}")
     public void deletePet(String id) {
         petService.deleteById(id);
     }
+
+
 }
+
+

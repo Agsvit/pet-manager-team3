@@ -3,6 +3,7 @@ package com.pet.manager.service;
 import com.pet.manager.controller.request.PetCreationRequest;
 import com.pet.manager.exception.DuplicatedPet;
 import com.pet.manager.exception.PetNotFound;
+import com.pet.manager.model.Feed;
 import com.pet.manager.model.Pet;
 import com.pet.manager.model.PetType;
 import com.pet.manager.repository.PetRepository;
@@ -54,5 +55,12 @@ public class PetService {
         pet.setPetName(petReq.getPetName());
         pet.setPetType(petReq.getPetType());
         return this.save(pet);
+    }
+
+    public Pet addFeed(String id, Feed feed) {
+        Pet pet = petRepository.findById(id).orElseThrow(PetNotFound::new);
+        pet.setFeed(feed);
+        petRepository.save(pet);
+        return pet;
     }
 }

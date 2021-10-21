@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -24,5 +26,7 @@ public class Pet {
 
     @Indexed(unique = true)
     private String petName;
+
+    private Feed feed;
 
 }
