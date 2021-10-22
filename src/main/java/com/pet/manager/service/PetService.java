@@ -42,12 +42,14 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
+/*
     public List<Pet> findByType(String type) {
-        return petRepository.findByType(PetType.valueOf(type));
+        return petRepository.findByPetType(PetType.valueOf(type));
     }
+*/
 
     public Pet findByName(String name) {
-        return petRepository.findByNameContaining(name).orElseThrow(PetNotFound::new);
+        return petRepository.findByPetNameContaining(name).orElseThrow(PetNotFound::new);
     }
 
     public Pet update(PetCreationRequest petReq, String id) {

@@ -21,7 +21,6 @@ public class Pet {
     private  String id;
 
     @Indexed
-//    @Enumerated(EnumType.ORDINAL)
     private PetType petType;
 
     @Indexed(unique = true)

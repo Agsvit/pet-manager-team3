@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class PetController {
 
     private final PetService petService;
@@ -25,15 +26,15 @@ public class PetController {
         return petService.findAll();
     }
 
-    @GetMapping("/pets")
+    @GetMapping("/pets-id")
     public Pet getPetById(@RequestBody String id) {
         return petService.findById(id);
     }
 
-    @GetMapping("/pets")
+   /* @GetMapping("/pets")
     public List<Pet> getPetByType(@RequestParam String type) {
         return petService.findByType(type);
-    }
+    }*/
 
     @GetMapping("/pets/{name}")
     public Pet getPetByName(@PathVariable(value = "name") String name) {
