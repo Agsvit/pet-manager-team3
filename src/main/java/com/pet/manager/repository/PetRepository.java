@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface PetRepository extends MongoRepository<Pet, String> {
 
-//    List<Pet> findByPetType(PetType type);
-//
-    Optional<Pet> findByPetNameContaining(String name);
+    List<Pet> findByPetType(PetType type);
+
+    Optional<Pet> findByNameContaining(String name);
 }

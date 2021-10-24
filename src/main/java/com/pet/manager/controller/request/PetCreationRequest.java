@@ -1,5 +1,7 @@
 package com.pet.manager.controller.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pet.manager.model.Pet;
 import com.pet.manager.model.PetType;
 import lombok.*;
 
@@ -13,6 +15,14 @@ public class PetCreationRequest {
 
     private PetType petType;
 
-    private String petName;
+    private String name;
 
+
+    @JsonIgnore
+    public Pet petBuild() {
+        return Pet.builder()
+                .petType(this.getPetType())
+                .name(this.getName())
+                .build();
+    }
 }

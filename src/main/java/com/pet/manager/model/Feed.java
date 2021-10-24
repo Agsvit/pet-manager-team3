@@ -18,7 +18,7 @@ public class Feed {
     @Id
     private String id;
 
-    private String lunchTime;
+    private LocalTime lunchTime;
 
     private String food;
 

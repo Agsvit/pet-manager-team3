@@ -34,7 +34,6 @@ public class PetService {
     }
 
     public Pet findById(String id) {
-        //add pet not found
         return petRepository.findById(id).orElseThrow(PetNotFound::new);
     }
 
@@ -42,27 +41,25 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
-/*
     public List<Pet> findByType(String type) {
         return petRepository.findByPetType(PetType.valueOf(type));
     }
-*/
 
     public Pet findByName(String name) {
-        return petRepository.findByPetNameContaining(name).orElseThrow(PetNotFound::new);
+        return petRepository.findByNameContaining(name).orElseThrow(PetNotFound::new);
     }
 
-    public Pet update(PetCreationRequest petReq, String id) {
+    public Pet update(String name, PetType type, String id) {
         Pet pet = this.findById(id);
-        pet.setPetName(petReq.getPetName());
-        pet.setPetType(petReq.getPetType());
+        pet.setName(name);
+        pet.setPetType(type);
         return this.save(pet);
     }
 
     public Pet addFeed(String id, Feed feed) {
-        Pet pet = petRepository.findById(id).orElseThrow(PetNotFound::new);
-        pet.setFeed(feed);
-        petRepository.save(pet);
-        return pet;
+        Pet pet = this.findById(id);
+        pet.getFeedList().add(feed);
+        return petRepository.save(pet);
     }
+
 }
